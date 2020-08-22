@@ -18,7 +18,8 @@ A step by step series of examples that tell you how to get a development env run
 
 ```
 Open Excel > File > Options > Add-ins > Manage Excel Add-ins > Browse > 
-Depending on whether Excel is 32 or 64bit, choose root dir's StockScraper-AddIn*-packed.xll file
+Depending on whether Excel is 32 or 64bit, choose StockScraper-AddIn*-packed.xll file
+Pre-built binaries can be found in StockScraper/StockScraper/bin/Debug/ for users to use directly
 ```
 
 To build the project:
@@ -35,5 +36,28 @@ Follow the first step
 
 To get the latest closing stock price:
 ```
-=bdp("ES3.SI")
+Syntax: =bdp( {ticker}, {yahoo field} )
+=bdp("ES3.SI") - STI ETF's previous closing prrice
+=bdp("AAPL", "yield") - Apple's dividend yield
+=bdp("MSFT", "volume") - Microsoft's volume traded
+```
+
+List of available fields
+```
+PREVIOUS CLOSE, 
+OPEN,
+BID,
+ASK,
+DAY'S RANGE,
+52-WEEK-RANGE,
+VOLUME,
+AVG. VOLUME,
+NET ASSETS,
+NAV,
+PE RATIO (TTM),
+YIELD,
+YTD DAILY TOTAL RETURN,
+BETA (5Y MONTHLY),
+EXPENSE RATIO (NET),
+INCEPTION DATE
 ```
