@@ -1,7 +1,8 @@
 StockScraper/.vs
 
 # Files that can be rebuilt via compilation should be excluded
-StockScraper/StockScraper/bin/*
+StockScraper/StockScraper/bin/Debug/*
+StockScraper/StockScraper/bin/Release
 StockScraper/StockScraper/obj
 
 # Packages should be installed via Nuget
