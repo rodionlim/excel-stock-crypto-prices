@@ -38,7 +38,7 @@ To get the latest market data for a exchange traded ticker:
 ```
 Syntax: =bdp( {ticker}, {yahoo field} )
 
-=bdp("ES3.SI") - STI ETF's previous closing prrice
+=bdp("ES3.SI") - STI ETF's previous closing price
 =bdp("AAPL", "yield") - Apple's dividend yield
 =bdp("MSFT", "volume") - Microsoft's volume traded
 ```
