@@ -1,10 +1,8 @@
 StockScraper/.vs
 
 # Files that can be rebuilt via compilation should be excluded
-StockScraper/StockScraper/bin
+StockScraper/StockScraper/bin/*
 StockScraper/StockScraper/obj
-StockScraper/StockScraperTest/bin
-StockScraper/StockScraperTest/obj
 
 # Packages should be installed via Nuget
 StockScraper/packages
@@ -13,5 +11,5 @@ StockScraper/packages
 StockScraper/StockScraper/StockScraper.csproj.user
 
 # Leave these files for users that do not want to compile the project themselves
-!StockScraper/StockScraper/bin/StockScraper-AddIn-packed.xll
-!StockScraper/StockScraper/bin/StockScraper-AddIn64-packed.xll
+!StockScraper/StockScraper/bin/Debug/StockScraper-AddIn-packed.xll
+!StockScraper/StockScraper/bin/Debug/StockScraper-AddIn64-packed.xll
