@@ -34,9 +34,10 @@ Follow the first step
 
 ### Usage
 
-To get the latest closing stock price:
+To get the latest market data for a exchange traded ticker:
 ```
 Syntax: =bdp( {ticker}, {yahoo field} )
+
 =bdp("ES3.SI") - STI ETF's previous closing prrice
 =bdp("AAPL", "yield") - Apple's dividend yield
 =bdp("MSFT", "volume") - Microsoft's volume traded
