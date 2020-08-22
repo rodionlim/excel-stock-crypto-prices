@@ -18,7 +18,7 @@ A step by step series of examples that tell you how to get a development env run
 
 ```
 Open Excel > File > Options > Add-ins > Manage Excel Add-ins > Browse > 
-Depending on whether Excel is 32 or 64bit, choose root dir's StockScraper-AddIn-packed*.xll file
+Depending on whether Excel is 32 or 64bit, choose root dir's StockScraper-AddIn*-packed.xll file
 ```
 
 To build the project:
