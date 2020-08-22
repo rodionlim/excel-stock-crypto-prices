@@ -34,7 +34,7 @@ Follow the first step
 
 ### Usage
 
-To get the latest market data for a exchange traded ticker:
+To get the latest market data for an exchange traded ticker:
 ```
 Syntax: =bdp( {ticker}, {yahoo field} )
 
