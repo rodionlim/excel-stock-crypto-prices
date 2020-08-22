@@ -1,0 +1,13 @@
+StockScraper/.vs
+
+# Files that can be rebuilt via compilation should be excluded
+StockScraper/StockScraper/bin
+StockScraper/StockScraper/obj
+StockScraper/StockScraperTest/bin
+StockScraper/StockScraperTest/obj
+
+# Packages should be installed via Nuget
+StockScraper/packages
+
+# Files that are specific to the developer's setup
+StockScraper/StockScraper/StockScraper.csproj.user
