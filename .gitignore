@@ -11,3 +11,7 @@ StockScraper/packages
 
 # Files that are specific to the developer's setup
 StockScraper/StockScraper/StockScraper.csproj.user
+
+# Leave these files for users that do not want to compile the project themselves
+!StockScraper/StockScraper/bin/StockScraper-AddIn-packed.xll
+!StockScraper/StockScraper/bin/StockScraper-AddIn64-packed.xll

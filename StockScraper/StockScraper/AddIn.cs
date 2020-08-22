@@ -33,11 +33,5 @@ namespace StockScraper
                 .AddReturnConversion((type, customAttributes) => type != typeof(object) ? null : ((Expression<Func<object, object>>)
                                                 ((object returnValue) => returnValue.Equals(ExcelError.ExcelErrorNA) ? rval : returnValue)));
         }
-
-        public ExcelFunctionRegistration UpdateHelpTopic(ExcelFunctionRegistration funcReg)
-        {
-            funcReg.FunctionAttribute.HelpTopic = "http://www.bing.com";
-            return funcReg;
-        }
     }
 }
