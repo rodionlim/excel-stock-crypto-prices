@@ -11,7 +11,8 @@ namespace StockScraper
 	{
 		private static readonly List<string> AvailableFields = new List<string>() 
 		{
-			"PREVIOUS CLOSE", 
+			"PREVIOUS CLOSE",
+			"CURRENT PRICE",
 			"OPEN",
 			"BID",
 			"ASK",
@@ -55,8 +56,10 @@ namespace StockScraper
 			var config = Configuration.Default.WithDefaultLoader();
 			var context = BrowsingContext.New(config);
 			var document = await context.OpenAsync($"https://sg.finance.yahoo.com/quote/{ticker}/");
+			float currentPx;
 
 			var quoteSummaryListItems = document.QuerySelectorAll("div[id='quote-summary'] td");
+			var quoteHeaderInfo = document.QuerySelectorAll("div[id='quote-header-info'] div span");
 
 			foreach (var item in quoteSummaryListItems.Select((sli, i) => new { Value = sli, Index = i }))
 			{
@@ -64,6 +67,17 @@ namespace StockScraper
 					keyCache = item.Value.TextContent.ToUpper();
 				else
 					quoteSummary.Add(keyCache, item.Value.TextContent);
+			}
+
+			foreach (var item in quoteHeaderInfo.Select((sli) => new { Value = sli }))
+			{
+				// TODO: We should find a better identifier for current price instead if possible
+				var tmp = item.Value.InnerHtml;
+				if (float.TryParse(tmp, out currentPx))
+				{
+					quoteSummary.Add("CURRENT PRICE", tmp);
+					break;
+				}
 			}
 
 			return quoteSummary;
