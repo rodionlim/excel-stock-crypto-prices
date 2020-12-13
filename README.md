@@ -40,6 +40,7 @@ Syntax: =bdp( {ticker}, {yahoo field} )
 
 =bdp("ES3.SI") - STI ETF's previous closing price
 =bdp("AAPL", "yield") - Apple's dividend yield
+=bdp("AAPL", "current price") - Apple's current price
 =bdp("MSFT", "volume") - Microsoft's volume traded
 ```
 
