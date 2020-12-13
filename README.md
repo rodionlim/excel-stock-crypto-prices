@@ -45,7 +45,8 @@ Syntax: =bdp( {ticker}, {yahoo field} )
 
 List of available fields
 ```
-PREVIOUS CLOSE, 
+PREVIOUS CLOSE,
+CURRENT PRICE,
 OPEN,
 BID,
 ASK,
