@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DnaLibrary Name="StockScraper Add-In" RuntimeVersion="v4.0" xmlns="http://schemas.excel-dna.net/addin/2018/05/dnalibrary">
-  <ExternalLibrary Path="StockScraper.dll" ExplicitExports="false" ExplicitRegistration="true" LoadFromBytes="true" Pack="true" IncludePdb="false" />
-  <Reference Path="ExcelDna.Registration.dll" Pack="true" />
-  <Reference Path="AngleSharp.dll" Pack="true" />
+  <ExternalLibrary Path="StockScraper.dll" ExplicitExports="false" ExplicitRegistration="true" LoadFromBytes="true" Pack="true" />
+    <Reference Path="AngleSharp.dll" Pack="true" />
+    <Reference Path="ExcelDna.Registration.dll" Pack="true" />
+    <Reference Path="ExcelDna.IntelliSense.dll" Pack="true" />
+    <Reference Path="System.Runtime.CompilerServices.Unsafe.dll" Pack="true" />
+    <Reference Path="System.Text.Encoding.CodePages.dll" Pack="true" />
   <!--
        The RuntimeVersion attribute above allows two settings:
        * RuntimeVersion="v4.0" - for .NET 4 and 4.5
