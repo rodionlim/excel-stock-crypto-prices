@@ -28,7 +28,7 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
- - Operating System: [e.g. iOS]
+ - Operating System: [e.g. windows / mac]
   
 **Additional context**
 Add any other context about the problem here.
