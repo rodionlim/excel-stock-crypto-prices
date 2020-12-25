@@ -34,14 +34,20 @@ Follow the first step
 
 ### Usage
 
+Fields in brackets are optional and does not need to be specified.
 To get the latest market data for an exchange traded ticker:
 ```
-Syntax: =bdp( {ticker}, {yahoo field} )
+Syntax: =bdp( {ticker}, [{yahoo field}], [{data source}] )
 
-=bdp("ES3.SI") - STI ETF's previous closing price
+Yahoo Finance Data Source
+=bdp("ES3.SI") - STI ETF's current price
 =bdp("AAPL", "yield") - Apple's dividend yield
 =bdp("AAPL", "current price") - Apple's current price
 =bdp("MSFT", "volume") - Microsoft's volume traded
+
+Google Finance Data Source
+=bdp("goog",,"google") - Google's current price 
+=bdp("aapl",,"google") - Apple's current price
 ```
 
 List of available fields
