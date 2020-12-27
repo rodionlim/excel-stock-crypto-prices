@@ -1,5 +1,9 @@
 # Excel Stock Price Extraction
-This repository provides an excel addin with user defined functions to scrape stock market data from Yahoo Finance
+This repository provides an excel addin with user defined functions to scrape stock market data from Yahoo and Google Finance.  
+
+We only support current price for Google Finance data source while the full list of fields supported for Yahoo Finance can be found below.  
+
+![](excel-stock-webscrape-demo.gif)
 
 ## Getting Started
 
@@ -34,14 +38,20 @@ Follow the first step
 
 ### Usage
 
+Fields in brackets are optional and does not need to be specified.
 To get the latest market data for an exchange traded ticker:
 ```
-Syntax: =bdp( {ticker}, {yahoo field} )
+Syntax: =bdp( {ticker}, [{yahoo field}], [{data source}] )
 
-=bdp("ES3.SI") - STI ETF's previous closing price
+Yahoo Finance Data Source
+=bdp("ES3.SI") - STI ETF's current price
 =bdp("AAPL", "yield") - Apple's dividend yield
 =bdp("AAPL", "current price") - Apple's current price
 =bdp("MSFT", "volume") - Microsoft's volume traded
+
+Google Finance Data Source
+=bdp("goog",,"google") - Google's current price 
+=bdp("aapl",,"google") - Apple's current price
 ```
 
 List of available fields
@@ -52,7 +62,7 @@ OPEN,
 BID,
 ASK,
 DAY'S RANGE,
-52-WEEK-RANGE,
+52-WEEK RANGE,
 VOLUME,
 AVG. VOLUME,
 NET ASSETS,
