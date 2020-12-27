@@ -1,7 +1,9 @@
 # Excel Stock Price Extraction
 This repository provides an excel addin with user defined functions to scrape stock market data from Yahoo and Google Finance.  
 
-We only support current price for Google Finance data source while the full list of fields supported for Yahoo Finance can be found below.
+We only support current price for Google Finance data source while the full list of fields supported for Yahoo Finance can be found below.  
+
+![](excel-stock-webscrape-demo.gif)
 
 ## Getting Started
 
@@ -60,7 +62,7 @@ OPEN,
 BID,
 ASK,
 DAY'S RANGE,
-52-WEEK-RANGE,
+52-WEEK RANGE,
 VOLUME,
 AVG. VOLUME,
 NET ASSETS,
