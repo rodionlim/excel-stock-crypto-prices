@@ -19,7 +19,7 @@ namespace StockScraper
 			"BID",
 			"ASK",
 			"DAY'S RANGE",
-			"52-WEEK-RANGE",
+			"52-WEEK RANGE",
 			"VOLUME",
 			"AVG. VOLUME",
 			"NET ASSETS",
