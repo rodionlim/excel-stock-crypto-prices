@@ -1,7 +1,8 @@
 # Excel Stock Price Extraction
-This repository provides an excel addin with user defined functions to scrape stock market data from Yahoo and Google Finance.  
 
-We only support current price for Google Finance data source while the full list of fields supported for Yahoo Finance can be found below.  
+This repository provides an excel addin with user defined functions to scrape stock market data from Yahoo and Google Finance.
+
+We only support current price for Google Finance data source while the full list of fields supported for Yahoo Finance can be found below.
 
 ![](excel-stock-webscrape-demo.gif)
 
@@ -15,23 +16,24 @@ What things you need to build the software (Not required if taking the dll files
 
 - Visual Studio 2019
 
-
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
 
 ```
-Open Excel > File > Options > Add-ins > Manage Excel Add-ins > Browse > 
+Open Excel > File > Options > Add-ins > Manage Excel Add-ins > Browse >
 Depending on whether Excel is 32 or 64bit, choose StockScraper-AddIn*-packed.xll file
 Pre-built binaries can be found in StockScraper/StockScraper/bin/Debug/ for users to use directly
 ```
 
 To build the project:
+
 ```
 Build the project with the .sln file
 ```
 
 Link the generated xll file
+
 ```
 Follow the first step
 ```
@@ -40,21 +42,23 @@ Follow the first step
 
 Fields in brackets are optional and does not need to be specified.
 To get the latest market data for an exchange traded ticker:
+
 ```
 Syntax: =bdp( {ticker}, [{yahoo field}], [{data source}] )
 
 Yahoo Finance Data Source
 =bdp("ES3.SI") - STI ETF's current price
-=bdp("AAPL", "yield") - Apple's dividend yield
+=bdp("AAPL", "foward dividend & yield") - Apple's dividend yield
 =bdp("AAPL", "current price") - Apple's current price
 =bdp("MSFT", "volume") - Microsoft's volume traded
 
 Google Finance Data Source
-=bdp("goog",,"google") - Google's current price 
+=bdp("goog",,"google") - Google's current price
 =bdp("aapl",,"google") - Apple's current price
 ```
 
 List of available fields
+
 ```
 PREVIOUS CLOSE,
 CURRENT PRICE,
@@ -73,4 +77,16 @@ YTD DAILY TOTAL RETURN,
 BETA (5Y MONTHLY),
 EXPENSE RATIO (NET),
 INCEPTION DATE
+MARKET CAP,
+EPS (TTM),
+EARNINGS DATE,
+FORWARD DIVIDEND & YIELD,
+EX-DIVIDEND DATE,
+1Y TARGET EST
 ```
+
+Available fields for yahoo data source differs based on the type of ticker, for example, `yield` is only available for etfs while `forward dividend & yield` is only available for single tock.
+
+To check if a field is available for a particular ticker, please check the summary table from yahoo finance directly.
+
+<img src="summary_table.PNG" width="400" height="300"/>

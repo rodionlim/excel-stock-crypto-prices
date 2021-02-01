@@ -5,7 +5,6 @@ using ExcelDna.Registration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace StockScraper
 {
@@ -29,13 +28,19 @@ namespace StockScraper
 			"YTD DAILY TOTAL RETURN",
 			"BETA (5Y MONTHLY)",
 			"EXPENSE RATIO (NET)",
-			"INCEPTION DATE"
+			"INCEPTION DATE",
+			"MARKET CAP",
+			"EPS (TTM)",
+			"EARNINGS DATE",
+			"FORWARD DIVIDEND & YIELD",
+			"EX-DIVIDEND DATE",
+			"1Y TARGET EST"
 		};
 
 		[ExcelAsyncFunction(Description = "Grab latest Yahoo/Google finance market data of a single exchange traded ticker, such as the closing price, dividend yield etc., defaults to Yahoo finance.")]
 		public static async Task<object> bdp(
 			[ExcelArgument(Name = "ticker", Description = "Yahoo/Google finance ticker. Example: \"es3.si\", \"goog\"")] string ticker,
-			[ExcelArgument(AllowReference = true, Name = "[field]", Description = "[Optional] Yahoo finance field. Example: \"previous close\", \"yield\"")] string field,
+			[ExcelArgument(AllowReference = true, Name = "[field]", Description = "[Optional] Yahoo finance or Google fields. Example: \"previous close\", \"market cap\", \"yield\"")] string field,
 			[ExcelArgument(AllowReference = true, Name = "[source]", Description = "[Optional] Specify the Data Source, defaults to yahoo. Example: \"yahoo\", \"google\"")] string source
 
 		)
