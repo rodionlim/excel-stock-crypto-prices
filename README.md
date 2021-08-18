@@ -1,8 +1,8 @@
-# Excel Stock Price Extraction
+# Excel Stock/Crypto Price Extraction
 
-This repository provides an excel addin with user defined functions to scrape stock market data from Yahoo and Google Finance.
+This repository provides an excel addin with user defined functions to scrape stock market data from Yahoo and Google Finance, and Crypto data from FTX.
 
-We only support current price for Google Finance data source while the full list of fields supported for Yahoo Finance can be found below.
+We only support current price [CURRENT PRICE] for Google Finance and FTX data source while the full list of fields supported for Yahoo Finance can be found below.
 
 ![](excel-stock-webscrape-demo.gif)
 
@@ -55,6 +55,10 @@ Yahoo Finance Data Source
 Google Finance Data Source
 =bdp("goog",,"google") - Google's current price
 =bdp("aapl",,"google") - Apple's current price
+
+FTX Data Source
+=bdp("btc/usd",,"ftx") - BTC/USD's current price
+=bdp("btc-0924",,"ftx") - BTC/USD's September futures price
 ```
 
 List of available fields
