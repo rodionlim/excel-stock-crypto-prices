@@ -2,7 +2,9 @@
 
 This repository provides an excel addin with user defined functions to scrape stock market data from Yahoo and Google Finance, and Crypto data from FTX.
 
-We only support current price [CURRENT PRICE] for Google Finance and FTX data source while the full list of fields supported for Yahoo Finance can be found below.
+We only support current price `CURRENT PRICE` for Google Finance and FTX data source while the full list of fields supported for Yahoo Finance can be found below.
+
+This addin is only tested to be working on Windows platform.
 
 ![](excel-stock-webscrape-demo.gif)
 
@@ -21,12 +23,12 @@ What things you need to build the software (Not required if taking the dll files
 A step by step series of examples that tell you how to get a development env running
 
 ```
+Download latest release (Depending on whether Excel is 32 or 64bit, choose StockScaper-AddIn*-packed.xll file)
 Open Excel > File > Options > Add-ins > Manage Excel Add-ins > Browse >
-Depending on whether Excel is 32 or 64bit, choose StockScraper-AddIn*-packed.xll file
-Pre-built binaries can be found in StockScraper/StockScraper/bin/Debug/ for users to use directly
+Pre-built binaries can also be found in StockScraper/StockScraper/bin/Debug/ 
 ```
 
-To build the project:
+To build the project from source:
 
 ```
 Build the project with the .sln file
