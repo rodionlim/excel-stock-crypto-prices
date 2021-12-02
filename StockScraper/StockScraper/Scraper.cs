@@ -90,7 +90,15 @@ namespace StockScraper
 			var document = await context.OpenAsync($"https://sg.finance.yahoo.com/quote/{ticker}/");
 
 			var quoteSummaryListItems = document.QuerySelectorAll("div[id='quote-summary'] td");
-            var quoteHeaderInfo = document.QuerySelectorAll("div[id='quote-header-info'] div span");
+			var quoteHeaderInfo = document.QuerySelectorAll($"fin-streamer[data-field='regularMarketPrice'][data-symbol='{ticker.ToUpper()}']");
+			if (quoteHeaderInfo.Length >= 1)
+			{
+				var tmp = quoteHeaderInfo[0].TextContent;
+                if (float.TryParse(tmp, out float currentPx))
+                    quoteSummary.Add("CURRENT PRICE", tmp);
+            }
+			else
+				quoteSummary.Add("CURRENT PRICE", "#NA");
 
 			foreach (var item in quoteSummaryListItems.Select((sli, i) => new { Value = sli, Index = i }))
 			{
@@ -98,17 +106,6 @@ namespace StockScraper
 					keyCache = item.Value.TextContent.ToUpper();
 				else
 					quoteSummary.Add(keyCache, item.Value.TextContent);
-			}
-
-			foreach (var item in quoteHeaderInfo.Select((sli) => new { Value = sli }))
-			{
-				// TODO: We should find a better identifier for current price instead if possible
-				var tmp = item.Value.InnerHtml;
-				if (float.TryParse(tmp, out float currentPx))
-				{
-					quoteSummary.Add("CURRENT PRICE", tmp);
-					break;
-				}
 			}
 
 			return quoteSummary;
