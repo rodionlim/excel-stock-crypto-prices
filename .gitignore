@@ -4,6 +4,9 @@ StockScraper/.vs
 StockScraper/StockScraper/bin/Debug/*
 StockScraper/StockScraper/bin/Release
 StockScraper/StockScraper/obj
+StockScraper/StockScraper.Tests/bin/Debug/*
+StockScraper/StockScraper.Tests/bin/Release
+StockScraper/StockScraper.Tests/obj
 
 # Packages should be installed via Nuget
 StockScraper/packages
