@@ -3,6 +3,7 @@ using AngleSharp.Io;
 using ExcelDna.Integration;
 using ExcelDna.Registration;
 using System;
+using System.Net.Http;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -85,8 +86,9 @@ namespace StockScraper
 		internal static async Task<Dictionary<string, string>> GetHTML(string ticker)
 		{
 			var quoteSummary = new Dictionary<string, string>();
-			var config = Configuration.Default.WithDefaultLoader();
-			// new DefaultHttpRequester { Headers = { ["User-Agent"] = USER_AGENT } }
+			var htmlRequestor = new DefaultHttpRequester();
+			htmlRequestor.Headers["User-Agent"] = USER_AGENT;
+			var config = Configuration.Default.With(htmlRequestor).WithDefaultLoader();
 			var context = BrowsingContext.New(config);
 			var tickerUC = ticker.ToUpper();
 			var document = await context.OpenAsync($"https://sg.finance.yahoo.com/quote/{tickerUC}/");
