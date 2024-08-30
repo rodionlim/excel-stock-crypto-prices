@@ -4,7 +4,6 @@ using ExcelDna.Integration;
 using ExcelDna.Registration;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace StockScraper
@@ -37,6 +36,8 @@ namespace StockScraper
 			"EX-DIVIDEND DATE",
 			"1Y TARGET EST"
 		};
+
+		private static readonly string USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36";
 
 		[ExcelAsyncFunction(Description = "Grab latest Yahoo/Google finance or FTX market data of a single exchange traded ticker, such as the closing price, dividend yield etc., defaults to Yahoo finance and Current Price.")]
 		public static async Task<object> bdp(
@@ -81,16 +82,17 @@ namespace StockScraper
 			return quoteSummary[field];
 		}
 
-		private static async Task<Dictionary<string, string>> GetHTML(string ticker)
+		internal static async Task<Dictionary<string, string>> GetHTML(string ticker)
 		{
 			var quoteSummary = new Dictionary<string, string>();
-			string keyCache = "";
 			var config = Configuration.Default.WithDefaultLoader();
+			// new DefaultHttpRequester { Headers = { ["User-Agent"] = USER_AGENT } }
 			var context = BrowsingContext.New(config);
-			var document = await context.OpenAsync($"https://sg.finance.yahoo.com/quote/{ticker}/");
+			var tickerUC = ticker.ToUpper();
+			var document = await context.OpenAsync($"https://sg.finance.yahoo.com/quote/{tickerUC}/");
 
-			var quoteSummaryListItems = document.QuerySelectorAll("div[id='quote-summary'] td");
-			var quoteHeaderInfo = document.QuerySelectorAll($"fin-streamer[data-field='regularMarketPrice'][data-symbol='{ticker.ToUpper()}']");
+			var quoteSummaryListItems = document.QuerySelectorAll("div[data-testid='quote-statistics'] li");
+			var quoteHeaderInfo = document.QuerySelectorAll($"fin-streamer[data-field='regularMarketPrice'][data-symbol='{tickerUC}']");
 			if (quoteHeaderInfo.Length >= 1)
 			{
 				var tmp = quoteHeaderInfo[0].TextContent;
@@ -100,12 +102,9 @@ namespace StockScraper
 			else
 				quoteSummary.Add("CURRENT PRICE", "#NA");
 
-			foreach (var item in quoteSummaryListItems.Select((sli, i) => new { Value = sli, Index = i }))
+			foreach (var item in quoteSummaryListItems)
 			{
-				if (item.Index % 2 == 0)
-					keyCache = item.Value.TextContent.ToUpper();
-				else
-					quoteSummary.Add(keyCache, item.Value.TextContent);
+				quoteSummary.Add(item.Children[0].TextContent.ToUpper(), item.Children[1].TextContent);
 			}
 
 			return quoteSummary;
