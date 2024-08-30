@@ -18,8 +18,6 @@ namespace StockScraper.Tests
 
             // assert
             Assert.NotNull(result);
-
-            Console.WriteLine(result);
         }
     }
 }
